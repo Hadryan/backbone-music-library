@@ -5,6 +5,7 @@ Router = Backbone.Router.extend({
 	routes: {
         ''                   : 'home',
         'albums'	         : 'list',
+        'albums/add'         : 'addAlbum',
         'albums/:id'         : 'albumDetails',
         'about'              : 'about',
         'contact'            : 'contact'
@@ -44,6 +45,13 @@ Router = Backbone.Router.extend({
             var albumView = new app.AlbumView({model: album});
             albumView.render(album);
         }});
-    }
+    },
+
+    addAlbum: function() {
+        var album = new app.Album();
+        
+        var albumView = new app.AlbumView({model: album});
+        albumView.render(album);
+    },
 
 })

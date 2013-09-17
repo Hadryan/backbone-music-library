@@ -2,11 +2,13 @@ var app = app || {};
 
 app.AlbumView = Backbone.View.extend({
 
-    el: $('#content'),
+    tagName: "div",
 
     render: function (album) {
+        $('#content').empty();
       	var template = _.template($('#album-template').html(),{album: album});
       	this.$el.html(template);
+        $('#content').append(this.el);
     },
 
     events: {
@@ -15,37 +17,32 @@ app.AlbumView = Backbone.View.extend({
     },
 
     saveAlbum: function () {
-    	console.log('Saving album');
 
-    	var album = new app.Album();
+        console.log('.save clicked');
 
-    	album.set({
+        this.model.set('title', $('#title').val());
+        this.model.set('artist', $('#artist').val());
+        this.model.set('year', $('#year').val());
 
-            coverImage: $('#coverImage').val(),
-            title: $('#title').val(),
-    		artist: $('#artist').val(),
-            year: $('#year').val()
-
-    	});
-
-        album.save(null, {
-            success: function () {
-            	console.log('Album saved');
-            	$('input').val('');
+        this.model.save(null, {
+            success: function (model) {
+                $('.alert-success').show();
             },
             error: function () {
-            	console.log('Error saving album');
             }
         });
 
+        return false;
     },
 
     deleteAlbum: function () {
+
         this.model.destroy({
             success: function () {
-                window.history.back();
+                app.router.navigate('/albums', {trigger: true, replace: true});
             }
         });
+
         return false;
     },
 

@@ -1,3 +1,12 @@
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  background: #eee; }
+
 #header {
   background: #333;
   color: #fff; }
@@ -9,3 +18,20 @@
       list-style-type: none;
       float: left;
       margin-right: 20px; }
+
+.album-tile {
+  background: #fff;
+  float: left;
+  border: 1px solid #ccc;
+  padding: 20px;
+  list-style-type: none;
+  width: 260px;
+  height: 260px;
+  margin: 0 20px 20px 0; }
+  .album-tile h2 {
+    font-size: 14px; }
+  .album-tile h2, .album-tile p {
+    line-height: 10px; }
+
+input[type="text"] {
+  height: 30px; }

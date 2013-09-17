@@ -20,24 +20,83 @@
         <![endif]-->
 
         <script type="text/template" id="albums-template">
-          <table class="table striped" >
-            <thead>
-              <tr>
-                <th>Album Title</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% _.each(albums, function(album) { %>
-                <tr>
-                  <td><%= album.get('title') %></td>
-                </tr>
-              <% }); %>
-              </tbody>
-          </table>
+            <ul>
+                <% _.each(albums, function(album) { %>
+                    <li class="album-tile">
+                        <a href="#albums/<%= album.get('_id')%>">
+                            <img src="img/<%= album.get('coverImage')%>" alt="Cover art for <%= album.get('title')%>" />
+                            <h2><%= album.get('title') %></h2>
+                            <p><%= album.get('artist') %></p>
+                            <p><%= album.get('year') %></p>
+                        </a>
+                    </li>
+                <% }); %>
+            </ul>
         </script>
 
         <script type="text/template" id="album-template">
-            <h1><%= album.get('title') %></h1>
+            <div class="row-fluid">
+
+                <form class="form-horizontal span12">
+
+                    <fieldset>
+
+                        <legend>View or edit an album</legend>
+
+                        <div class="row">
+                            <div class="span8">
+
+                                <div class="control-group">
+                                    <label for="coverImage" class="control-label">Cover Image:</label>
+
+                                    <div class="controls">
+                                        <input type="text" id="coverImage" name="coverImage" value="<%= album.get('coverImage') %>"/>
+                                        <span class="help-inline"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="title" class="control-label">Title:</label>
+
+                                    <div class="controls">
+                                        <input type="text" id="title" name="title" value="<%= album.get('title') %>"/>
+                                        <span class="help-inline"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="artist" class="control-label">Artist:</label>
+
+                                    <div class="controls">
+                                        <input type="text" id="artist" name="artist" value="<%= album.get('artist') %>"/>
+                                        <span class="help-inline"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="year" class="control-label">Year:</label>
+
+                                    <div class="controls">
+                                        <input type="text" id="year" name="year" value="<%= album.get('year') %>"/>
+                                        <span class="help-inline"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+                    <div class="form-actions">
+                        <a href="#" class="btn btn-primary save">Save</a>
+                        <a href="#" class="btn btn-secondary delete">Delete</a>
+                    </div>
+
+                </form>
+
+            </div>
+
         </script>
 
         <script type="text/template" id="about-template">
@@ -55,6 +114,7 @@
                     <li><a href="/#about">About</a></li>
                     <li><a href="/#contact">Contact</a></li>
                     <li><a href="/#albums">Albums</a></li>
+                    <li><a href="/#albums/add">Add an album</a></li>
                 </ul>
             </nav>
         </script>
@@ -67,11 +127,13 @@
             
         </div>
 
-        <div id="content">
-            
+        <div class="container">
+            <div class="row-fluid">
+                <div id="content">
+                    
+                </div>
+            </div>
         </div>
-
-
 
         <script src="js/lib/jquery.js"></script>
         <script src="js/lib/underscore.js"></script>

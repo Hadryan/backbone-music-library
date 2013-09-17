@@ -1,0 +1,11 @@
+#header {
+  background: #333;
+  color: #fff; }
+  #header ul {
+    margin-left: 0;
+    overflow: hidden;
+    padding: 15px 8px; }
+    #header ul li {
+      list-style-type: none;
+      float: left;
+      margin-right: 20px; }

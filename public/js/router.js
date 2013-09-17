@@ -12,20 +12,22 @@ Router = Backbone.Router.extend({
 	},
 
 	initialize: function () {
-
+        var headerView = new app.HeaderView();
+        headerView.render();
 	},
 
 	home: function () {
-		alert('home page');
 	},
 
-	contact: function () {
-		alert('contact page');
-	},
+    about: function () {
+        var aboutView = new app.AboutView();
+        aboutView.render();
+    },
 
-	about: function () {
-		alert('about page');
-	},
+    contact: function () {
+        var contactView = new app.ContactView();
+        contactView.render();
+    },
 
 	list: function() {
         var albums = new app.Albums();

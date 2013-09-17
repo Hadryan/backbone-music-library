@@ -19,14 +19,6 @@ app.configure(function () {
     app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.get('/contact', function(request, response) {
-    response.send('<h1>Contact page</h1>');
-});
-
-app.get('/about', function(request, response) {
-    response.send('<h1>About page</h1>');
-});
-
 // Define routes and methods to call when visited
 app.get('/albums', dbfunctions.findAll);
 app.get('/albums/:id', dbfunctions.findById);

@@ -28,16 +28,21 @@ body {
 	background: #fff;
 	float: left;
 	border: 1px solid #ccc;
-	padding: 20px;
 	list-style-type: none;
-	width: 260px;
-	height: 260px;
 	margin: 0 20px 20px 0;
 	h2 {
 		font-size: 14px;
 	}
 	h2, p {
 		line-height: 10px;
+	}
+	a {
+		display: block;
+		padding: 20px;
+		width: 260px;
+		height: 260px;
+		color: #333;
+		text-decoration: none;
 	}
 }
 

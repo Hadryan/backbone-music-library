@@ -20,6 +20,7 @@ app.AlbumView = Backbone.View.extend({
 
         console.log('.save clicked');
 
+        this.model.set('coverImage', $('#coverImage').val());
         this.model.set('title', $('#title').val());
         this.model.set('artist', $('#artist').val());
         this.model.set('year', $('#year').val());

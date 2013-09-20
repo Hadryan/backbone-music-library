@@ -4,7 +4,11 @@ var app = app || {};
 app.Album = Backbone.Model.extend({
 
 	defaults: {
-		title: 'This album has no title'
+		coverImage: 'default.jpg',
+		title: 'This album has no title',
+		artist: 'Unknown',
+		year: 'Unknown'
+
 	},
 
     urlRoot: '/albums',
